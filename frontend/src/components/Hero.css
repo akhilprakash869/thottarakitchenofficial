@@ -1,0 +1,208 @@
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 100px;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 45%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    filter: brightness(0.9) contrast(1.1);
+    will-change: opacity, transform;
+    z-index: 0;
+}
+
+.hero-bg.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(10, 10, 10, 0.5) 0%,
+            rgba(10, 10, 10, 0.6) 50%,
+            rgba(10, 10, 10, 0.9) 100%);
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(201, 168, 76, 0.06);
+    top: 10%;
+    right: -10%;
+    animation-duration: 10s;
+}
+
+.orb-2 {
+    width: 300px;
+    height: 300px;
+    background: rgba(201, 168, 76, 0.04);
+    bottom: 20%;
+    left: -5%;
+    animation-duration: 14s;
+    animation-delay: 3s;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px;
+    max-width: 1200px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #0c0c0c;
+    background: var(--gradient-gold);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    background: #0c0c0c;
+    border-radius: 50%;
+    animation: pulse-glow 2s infinite;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    text-shadow: 0 10px 45px rgba(0, 0, 0, 0.8);
+    letter-spacing: -1.5px;
+}
+
+.hero-title .accent {
+    background: var(--gradient-gold);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    filter: drop-shadow(0 0 35px rgba(201, 168, 76, 0.6));
+    font-style: italic;
+    background-size: 200%;
+    animation: gradient-flow 12s linear infinite;
+    padding-right: 0.15em;
+    margin-right: -0.15em;
+}
+
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+.hero-subtitle {
+    font-size: clamp(1.2rem, 2.8vw, 1.5rem);
+    color: var(--text-light);
+    margin-bottom: 40px;
+    line-height: 1.8;
+    max-width: 800px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 28px;
+    height: 44px;
+    border: 2px solid rgba(201, 168, 76, 0.3);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.scroll-dot {
+    width: 4px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 2px;
+    animation: float 1.5s ease-in-out infinite;
+}
+
+@media (max-width: 600px) {
+    .hero-stats {
+        gap: 28px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,132 @@
+.about-section {
+    background: var(--bg-section);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-visual {
+    position: relative;
+}
+
+.about-img-wrapper {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: visible;
+}
+
+.about-img-wrapper img {
+    width: 100%;
+    min-height: 480px;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    display: block;
+    border: 1px solid var(--border);
+}
+
+.about-img-badge {
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-glow);
+}
+
+.about-img-badge .accent {
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.about-img-badge span:last-child {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-content {
+    padding-right: 20px;
+}
+
+.about-desc {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-size: 1.2rem;
+    line-height: 1.9;
+}
+
+.about-highlights {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.highlight-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.highlight-icon {
+    font-size: 1.4rem;
+    width: 44px;
+    height: 44px;
+    background: rgba(201, 168, 76, 0.08);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.highlight-item h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.highlight-item p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-img-wrapper img {
+        height: 360px;
+    }
+
+    .about-img-badge {
+        bottom: -16px;
+        right: 16px;
+    }
+
+    .about-content {
+        padding-right: 0;
+    }
+}

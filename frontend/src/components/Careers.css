@@ -1,0 +1,129 @@
+.careers-section {
+    background: var(--bg-section);
+}
+
+.open-roles {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.role-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px;
+}
+
+.role-info h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.role-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201, 168, 76, 0.08);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    padding: 4px 12px;
+    border-radius: 50px;
+}
+
+.career-form-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-row-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.form-success {
+    margin-top: 16px;
+    color: #4caf82;
+    font-size: 0.9rem;
+}
+
+.form-error {
+    margin-top: 16px;
+    color: #cf6679;
+    font-size: 0.9rem;
+}
+
+.career-cta-wrapper {
+    max-width: 900px;
+    margin: 40px auto 0;
+    text-align: center;
+    border: 1px solid var(--border);
+    padding: 60px 40px;
+    background: var(--bg-card);
+    position: relative;
+    overflow: hidden;
+}
+
+.career-cta-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.career-content h3 {
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.career-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 32px;
+}
+
+.career-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.career-email {
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .career-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .career-cta-wrapper {
+        padding: 40px 24px;
+    }
+
+    .role-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .form-row-3 {
+        grid-template-columns: 1fr;
+    }
+}
