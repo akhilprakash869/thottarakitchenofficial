@@ -97,13 +97,13 @@
 
 .hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
     font-weight: 900;
-    line-height: 1.05;
+    line-height: 1.0;
     color: var(--text-primary);
     margin-bottom: 24px;
-    text-shadow: 0 10px 45px rgba(0, 0, 0, 0.8);
-    letter-spacing: -1.5px;
+    text-shadow: 0 10px 60px rgba(0, 0, 0, 1);
+    letter-spacing: -2px;
 }
 
 .hero-title .accent {
@@ -175,25 +175,42 @@
 
 .scroll-indicator {
     position: absolute;
-    bottom: 32px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    width: 28px;
-    height: 44px;
-    border: 2px solid rgba(201, 168, 76, 0.3);
-    border-radius: 14px;
+    width: 24px;
+    height: 40px;
+    border: 1.5px solid rgba(201, 168, 76, 0.4);
+    border-radius: 12px;
     display: flex;
     justify-content: center;
-    padding-top: 8px;
+    padding-top: 6px;
 }
 
 .scroll-dot {
-    width: 4px;
-    height: 8px;
+    width: 3px;
+    height: 6px;
     background: var(--gold);
     border-radius: 2px;
-    animation: float 1.5s ease-in-out infinite;
+    animation: scroll-move 2s ease-in-out infinite;
+}
+
+@keyframes scroll-move {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(12px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 @media (max-width: 600px) {

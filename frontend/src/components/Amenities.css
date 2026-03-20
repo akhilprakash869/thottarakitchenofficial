@@ -11,6 +11,17 @@
 .amenity-card {
     position: relative;
     overflow: hidden;
+    padding: 40px 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+}
+
+.amenity-card:hover {
+    border-color: rgba(201, 168, 76, 0.4);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-glow);
 }
 
 .amenity-card::after {

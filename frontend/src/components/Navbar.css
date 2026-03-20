@@ -52,26 +52,28 @@
 }
 
 .nav-link {
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 0.95rem;
+    font-weight: 400;
     color: var(--text-primary);
     padding: 8px 16px;
     border-radius: 12px;
     transition: var(--transition);
-    letter-spacing: 0.8px;
+    letter-spacing: 1px;
     text-transform: uppercase;
+    opacity: 0.85;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--text-primary);
+    color: var(--gold);
+    opacity: 1;
 }
 
 .nav-cta {
-    padding: 14px 32px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-left: 16px;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-left: 20px;
     text-transform: uppercase;
 }
 

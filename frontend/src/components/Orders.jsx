@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Orders.css';
 
-export default function Orders() {
+export default function Orders({ showToast }) {
     const [form, setForm] = useState({ name: '', phone: '', items: '', notes: '' });
     const [status, setStatus] = useState('');
 
@@ -11,14 +11,24 @@ export default function Orders() {
         e.preventDefault();
         setStatus('sending');
         try {
-            const res = await fetch('http://localhost:5000/api/orders', {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/orders`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(form),
             });
-            if (res.ok) { setStatus('success'); setForm({ name: '', phone: '', items: '', notes: '' }); }
-            else setStatus('error');
-        } catch { setStatus('error'); }
+            if (res.ok) {
+                showToast('Order received! We will contact you shortly.', 'success');
+                setStatus('success');
+                setForm({ name: '', phone: '', items: '', notes: '' });
+            }
+            else {
+                showToast('Could not submit order. Please try WhatsApp.', 'error');
+                setStatus('error');
+            }
+        } catch {
+            showToast('Server error. Please try WhatsApp.', 'error');
+            setStatus('error');
+        }
     };
 
     const waLink = `https://wa.me/919895755005?text=Hi%20Thottara%20Kitchen!%20I'd%20like%20to%20place%20an%20order.`;
@@ -78,8 +88,6 @@ export default function Orders() {
                             <button type="submit" className="btn btn-primary" style={{ width: '100%' }} disabled={status === 'sending'}>
                                 {status === 'sending' ? 'Placing Order...' : 'Place Order'}
                             </button>
-                            {status === 'success' && <p className="form-success">✅ Order received! We'll confirm on WhatsApp shortly.</p>}
-                            {status === 'error' && <p className="form-error">❌ Could not submit. Try WhatsApp instead.</p>}
                         </form>
                     </div>
                 </div>

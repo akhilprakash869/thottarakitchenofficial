@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Location.css';
 
-export default function Location() {
+export default function Location({ showToast }) {
     const [form, setForm] = useState({ name: '', email: '', message: '' });
     const [status, setStatus] = useState('');
 
@@ -11,18 +11,21 @@ export default function Location() {
         e.preventDefault();
         setStatus('sending');
         try {
-            const res = await fetch('http://localhost:5000/api/contact', {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ...form, type: 'general' }),
             });
             if (res.ok) {
+                showToast('Message sent! We\'ll get back to you shortly.', 'success');
                 setStatus('success');
                 setForm({ name: '', email: '', message: '' });
             } else {
+                showToast('Something went wrong. Please try again.', 'error');
                 setStatus('error');
             }
         } catch {
+            showToast('Server error. Please try again later.', 'error');
             setStatus('error');
         }
     };
@@ -80,8 +83,6 @@ export default function Location() {
                             <button type="submit" className="btn btn-primary" style={{ width: '100%' }} disabled={status === 'sending'}>
                                 {status === 'sending' ? 'Sending...' : 'Send Message'}
                             </button>
-                            {status === 'success' && <p className="form-success">✅ Message sent! We'll get back to you shortly.</p>}
-                            {status === 'error' && <p className="form-error">❌ Something went wrong. Please try again.</p>}
                         </form>
                     </div>
                 </div>

@@ -9,8 +9,16 @@ import Orders from './components/Orders';
 import Careers from './components/Careers';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
+import Toast from './components/Toast';
+import { useState } from 'react';
 
 export default function App() {
+  const [toast, setToast] = useState({ message: '', type: '' });
+
+  const showToast = (message, type = 'success') => {
+    setToast({ message, type });
+  };
+
   return (
     <>
       <Navbar />
@@ -19,12 +27,17 @@ export default function App() {
         <About />
         <Amenities />
         <Gallery />
-        <Orders />
-        <Location />
+        <Orders showToast={showToast} />
+        <Location showToast={showToast} />
         <Careers />
       </main>
       <Footer />
       <WhatsAppFloat />
+      <Toast
+        message={toast.message}
+        type={toast.type}
+        onClose={() => setToast({ message: '', type: '' })}
+      />
     </>
   );
 }

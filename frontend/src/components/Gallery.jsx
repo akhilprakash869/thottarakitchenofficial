@@ -1,27 +1,33 @@
 import './Gallery.css';
 
-import img1 from '../assets/images/photo_2026-03-14_23-56-50.jpg';
-import img2 from '../assets/images/photo_2026-03-14_23-57-03.jpg';
-import img3 from '../assets/images/photo_2026-03-14_23-57-15.jpg';
-import img4 from '../assets/images/photo_2026-03-14_23-57-10.jpg';
-import img5 from '../assets/images/egg_bullseye.jpg';
-import img6 from '../assets/images/photo_2026-03-14_23-56-56.jpg';
-import img7 from '../assets/images/photo_2026-03-14_23-57-07.jpg';
-import img8 from '../assets/images/photo_2026-03-14_23-57-27.jpg';
-import img9 from '../assets/images/photo_2026-03-14_23-57-23.jpg';
-import img10 from '../assets/images/photo_2026-03-14_23-56-59.jpg';
+import beefRoast from '../assets/images/photo_2026-03-14_23-57-03.jpg';
+import beefCurry from '../assets/images/photo_2026-03-14_23-57-15.jpg';
+import eggBullseye from '../assets/images/egg_bullseye.jpg';
+import culinaryArt from '../assets/images/photo_2026-03-14_23-56-56.jpg';
+import pidiRice from '../assets/images/photo_2026-03-14_23-57-07.jpg';
+import keralaBiriyani from '../assets/images/photo_2026-03-14_23-57-23.jpg';
+import nightView from '../assets/images/gallery_night_view_new.jpg';
+import kappaBeef from '../assets/images/gallery_tapioca_beef_new.jpg';
+import spicyOmelette from '../assets/images/gallery_omelette_new.jpg';
+import claypotCurry from '../assets/images/gallery_claypot_curry_new.jpg';
+import fishPollichathu from '../assets/images/gallery_fish_pollichathu_new.jpg';
+import imgTable1 from '../assets/images/gallery_table_1.jpg';
+import imgTable2 from '../assets/images/gallery_table_2.jpg';
 
 const images = [
-    { src: img1, alt: 'Thottara Kitchen Night View' },
-    { src: img2, alt: 'Signature Porotta and Beef Roast' },
-    { src: img3, alt: 'Authentic Kerala Beef Curry' },
-    { src: img4, alt: 'Traditional Spicy Omelette' },
-    { src: img8, alt: 'Authentic Kerala Kappa and Beef' },
-    { src: img7, alt: 'Traditional Rice Dumplings (Pidi)' },
-    { src: img9, alt: 'Signature Kerala Biriyani' },
-    { src: img10, alt: 'Malabar Fish Pollichathu' },
-    { src: img5, alt: 'Perfect Sunny Side Up' },
-    { src: img6, alt: 'Kerala Culinary Art' },
+    { src: nightView, alt: 'Thottara Kitchen Night View' },
+    { src: beefRoast, alt: 'Signature Porotta and Beef Roast' },
+    { src: fishPollichathu, alt: 'Malabar Fish Pollichathu' },
+    { src: spicyOmelette, alt: 'Traditional Spicy Omelette' },
+    { src: kappaBeef, alt: 'Authentic Kerala Kappa and Beef' },
+    { src: claypotCurry, alt: 'Traditional Claypot Curry' },
+    { src: pidiRice, alt: 'Traditional Rice Dumplings (Pidi)' },
+    { src: keralaBiriyani, alt: 'Signature Kerala Biriyani' },
+    { src: beefCurry, alt: 'Authentic Kerala Beef Curry' },
+    { src: eggBullseye, alt: 'Perfect Sunny Side Up' },
+    { src: culinaryArt, alt: 'Kerala Culinary Art' },
+    { src: imgTable1, alt: 'Table Setting at Thottara' },
+    { src: imgTable2, alt: 'Cozy Dining Spot' },
 ];
 
 export default function Gallery() {

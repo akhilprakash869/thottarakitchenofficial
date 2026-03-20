@@ -2,14 +2,23 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize');
+const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(helmet()); // Security headers
+app.use(cors({
+    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    credentials: true
+}));
 app.use(express.json());
+app.use(mongoSanitize()); // Prevent NoSQL injection
 
 // Routes
+app.use('/api/auth', require('./routes/auth'));
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/contact', require('./routes/contact'));
 
@@ -17,6 +26,9 @@ app.use('/api/contact', require('./routes/contact'));
 app.get('/', (req, res) => {
     res.json({ message: 'Thottara Kitchen API is running ✅' });
 });
+
+// Error Handling Middleware
+app.use(errorHandler);
 
 // MongoDB Connection
 mongoose

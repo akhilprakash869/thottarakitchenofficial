@@ -13,9 +13,26 @@
     position: relative;
     overflow: hidden;
     border-radius: var(--radius);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     aspect-ratio: 4/3;
     cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--gold);
+    border-radius: var(--radius);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.gallery-item:hover::after {
+    opacity: 0.4;
 }
 
 .gallery-item.wide {
@@ -37,16 +54,34 @@
 .gallery-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(4px);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: var(--transition);
+    padding: 24px;
 }
 
 .gallery-item:hover .gallery-overlay {
     opacity: 1;
+}
+
+.gallery-overlay::before {
+    content: 'VIEW IMAGE';
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 12px;
+    transform: translateY(10px);
+    transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-overlay::before {
+    transform: translateY(0);
 }
 
 .gallery-zoom {
