@@ -126,7 +126,8 @@
         justify-content: center;
         align-items: center;
         gap: 24px;
-        z-index: 999;
+        z-index: 2000;
+        /* Increased to stay above floating buttons */
     }
 
     .nav-links.open {

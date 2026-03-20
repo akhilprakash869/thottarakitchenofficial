@@ -132,7 +132,7 @@ h4 {
   letter-spacing: 0.5px;
   transition: var(--transition);
   position: relative;
-  overflow: hidden;
+  /* Removed overflow: hidden to prevent clipping of borders/labels on mobile */
 }
 
 .btn::before {
@@ -315,6 +315,7 @@ h4 {
 .delay-3 {
   animation-delay: 0.45s;
 }
+
 /* ===================== PREMIUM UTILITIES ===================== */
 .reveal {
   opacity: 0;

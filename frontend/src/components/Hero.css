@@ -99,11 +99,14 @@
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.5rem, 8vw, 5.5rem);
     font-weight: 900;
-    line-height: 1.0;
+    line-height: 1.25;
+    /* Increased from 1.0 to prevent 'g' clipping */
     color: var(--text-primary);
     margin-bottom: 24px;
     text-shadow: 0 10px 60px rgba(0, 0, 0, 1);
     letter-spacing: -2px;
+    padding-bottom: 0.1em;
+    /* Extra buffer for descenders */
 }
 
 .hero-title .accent {
