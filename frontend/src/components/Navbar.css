@@ -82,7 +82,9 @@
     display: none;
     flex-direction: column;
     gap: 5px;
-    padding: 6px;
+    padding: 12px;
+    /* Increased for better touch target */
+    cursor: pointer;
 }
 
 .hamburger span {
